@@ -10,7 +10,7 @@ TOKEN = os.environ['BOT_TOKEN']
 LOGIN = os.environ['BOT_LOGIN']
 NAME = os.environ['BOT_NAME']
 client = MongoClient(os.environ['MONGODB_URI'])
-groups = client.get_default_database()
+groups = client.botDb
 bot = telebot.TeleBot(TOKEN)
 
 
