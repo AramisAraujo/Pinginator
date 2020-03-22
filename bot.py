@@ -3,7 +3,7 @@ import pymongo
 import os
 
 if 'BOT_TOKEN' not in os.environ or 'BOT_LOGIN' not in os.environ or 'BOT_NAME' not in os.environ:
-    print("Please set env variables: BOT_TOKEN, BOT_LOGIN, BOT_NAME")
+    print("Ajuste as variáveis de ambiente: BOT_TOKEN, BOT_LOGIN, BOT_NAME")
     exit(0)
 
 TOKEN = os.environ['BOT_TOKEN']
@@ -26,7 +26,7 @@ def text_handler(message):
     chat_id = message.chat.id
     is_private = message.chat.type == 'private'
     if is_private:
-        bot.send_message(chat_id, 'I AM A GROUP BOT :C')
+        bot.send_message(chat_id, 'Só funciono em grupos :C')
     else:
         text = ''
         users = groups[str(message.chat.id)].find({})
@@ -40,9 +40,9 @@ def text_handler(message):
 
 @bot.message_handler(commands=['start', 'help'])
 def start_handler(message):
-    bot.send_message(message.chat.id, 'Hello ' + message.from_user.first_name + ', my name is ' + NAME + '.\n'
-                                      'I will ping all user in group, if you use /ping or /all\n' +
-                                      ('I am useless in private chat. I am group bot.' if message.chat.type == 'private' else ''))
+    bot.send_message(message.chat.id, 'Olá ' + message.from_user.first_name + ', sou ' + NAME + '.\n'
+                                      'Irei chamar todos do grupo caso utilize /ping ou /all\n' +
+                                      ('Funciono apenas em grupos.' if message.chat.type == 'private' else ''))
     insert_user(message)
 
 
@@ -61,7 +61,7 @@ def handler_text(message):
     if '@' + LOGIN in message.text:
         bot.send_message(message.chat.id, '@' + message.from_user.username)
     elif NAME in message.text:
-        bot.send_message(message.chat.id, 'Am i joke to you?')
+        bot.send_message(message.chat.id, 'Am I joke to you?')
     insert_user(message)
 
 
