@@ -9,7 +9,8 @@ if 'BOT_TOKEN' not in os.environ or 'BOT_LOGIN' not in os.environ or 'BOT_NAME' 
 TOKEN = os.environ['BOT_TOKEN']
 LOGIN = os.environ['BOT_LOGIN']
 NAME = os.environ['BOT_NAME']
-client = pymongo.MongoClient()
+client = MongoClient(os.environ['MONGOLAB_URI'])
+# db = client.get_default_database()
 groups = client.botDb
 bot = telebot.TeleBot(TOKEN)
 
