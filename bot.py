@@ -1,5 +1,5 @@
 import telebot
-import pymongo
+from pymongo import MongoClient
 import os
 
 if 'BOT_TOKEN' not in os.environ or 'BOT_LOGIN' not in os.environ or 'BOT_NAME' not in os.environ:
