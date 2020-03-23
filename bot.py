@@ -22,7 +22,7 @@ def insert_user(message, user=None):
                                                 {'$set': {'name': user.username}}, True)
 
 
-@bot.message_handler(commands=['ping', 'all'])
+@bot.message_handler(commands=['ping', 'all', 'catuca', 'cutuca'])
 def text_handler(message):
     chat_id = message.chat.id
     is_private = message.chat.type == 'private'
@@ -47,7 +47,7 @@ def handle_join(message):
 @bot.message_handler(commands=['start', 'help'])
 def start_handler(message):
     bot.send_message(message.chat.id, 'Olá ' + message.from_user.first_name + ', sou ' + NAME + '.\n'
-                                      'Irei chamar todos do grupo caso utilize /ping ou /all\n' +
+                                      'Irei chamar todos do grupo caso utilize /ping , /all , /catuca , ou /cutuca\n' +
                                       ('Funciono apenas em grupos.' if message.chat.type == 'private' else ''))
     insert_user(message)
 
