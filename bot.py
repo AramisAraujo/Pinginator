@@ -40,8 +40,9 @@ def text_handler(message):
     
 @bot.message_handler(commands=['catucame'])
 def handle_join(message):
-    insert_user(message)
-    bot.send_message(message.chat.id, '@' + message.from_user.username)
+    if not message.from_user is None:
+        insert_user(message)
+        bot.send_message(message.chat.id, '@' + message.from_user.username)
 
 @bot.message_handler(commands=['start', 'help'])
 def start_handler(message):
