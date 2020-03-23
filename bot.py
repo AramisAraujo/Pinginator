@@ -40,6 +40,7 @@ def text_handler(message):
     
 @bot.message_handler(content_types=["text"])
 def handle_join(message):
+    print(message)
     if not message.from_user is None:
         insert_user(message)
         #bot.send_message(message.chat.id, '@' + message.from_user.username)
