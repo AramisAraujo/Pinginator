@@ -38,11 +38,11 @@ def text_handler(message):
             bot.send_message(message.chat.id, text)
     insert_user(message)
     
-@bot.message_handler(commands=['catucame'])
+@bot.message_handler(content_types=["text"])
 def handle_join(message):
     if not message.from_user is None:
         insert_user(message)
-        bot.send_message(message.chat.id, '@' + message.from_user.username)
+        #bot.send_message(message.chat.id, '@' + message.from_user.username)
 
 @bot.message_handler(commands=['start', 'help'])
 def start_handler(message):
