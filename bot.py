@@ -37,7 +37,11 @@ def text_handler(message):
         if len(text) > 0:
             bot.send_message(message.chat.id, text)
     insert_user(message)
-
+    
+@bot.message_handler(commands=['catucame'])
+def handle_join(message):
+    insert_user(message)
+    bot.send_message(message.chat.id, '@' + message.from_user.username)
 
 @bot.message_handler(commands=['start', 'help'])
 def start_handler(message):
