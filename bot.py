@@ -1,3 +1,5 @@
+#coding: utf-8
+
 import telebot
 from pymongo import MongoClient
 import os
