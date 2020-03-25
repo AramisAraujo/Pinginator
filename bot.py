@@ -35,7 +35,10 @@ def text_handler(message):
         users = groups[str(message.chat.id)].find({})
         for user in users:
             if user['name'] != message.from_user.username:
-                text += '@' + user['name'] + ' '
+                try:
+                    text += '@' + user['name'] + ' '
+                except:
+                    pass
         if len(text) > 0:
             bot.send_message(message.chat.id, text)
     insert_user(message)
